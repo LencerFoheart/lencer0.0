@@ -1,0 +1,19 @@
+#
+# Small/boot/head.s
+#
+# (C) 2012-2013 Yafei Zheng
+# V0.0 2012-12-7 10:44:39
+#
+# Email: e9999e@163.com, QQ: 1039332004
+#
+
+head.s由GNU as编译。
+编译命令：as -o head.o head.s
+链接命令：ld -Ttext 0 -e startup_32 -o head head.o
+
+
+head.s的主要工作如下：
+
+1.重新设置GDT，IDT；并设置8253定时芯片
+2.默认中断，时钟中断，系统调用代码
+3.两个任务代码

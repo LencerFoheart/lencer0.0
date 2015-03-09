@@ -1,0 +1,19 @@
+!
+! Small/boot/boot.s
+!
+! (C) 2012-2013 Yafei Zheng
+! V0.0 2012-12-6 20:24:19
+!
+! Email: e9999e@163.com, QQ: 1039332004
+!
+
+boot.s由as86编译。
+编译命令：as86 -0 -a -o boot.o boot.s
+链接命令：ld86 -0 -s -o boot boot.o
+
+
+boot.s的主要工作如下：
+
+1.将head模块加载到0x10000，然后将其移动到0x0处
+2.设置好临时的GDT，，选通A20地址线，切换到保护模式
+3.跳转到head模块执行
